@@ -23,30 +23,28 @@ export function Confirmation() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <KeyboardAvoidingView
-                style={styles.container}
-            >
-                <View style={styles.content}>
-                    <View style={styles.form}>
 
-                        <View style={styles.header}>
-                            <Text style={styles.emoji}>
-                                😄️
-                            </Text>
+            <View style={styles.content} >
+                <Text style={styles.emoji}>
+                    😄️
+                </Text>
 
-                            <Text style={styles.title}>
-                                Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
-                            </Text>
-                        </View>
+                <Text style={styles.title}>
+                    Prontinho
+                </Text>
 
-                        <View style={styles.footer}>
-                            <Button title="Confirmar" />
-                        </View>
+                <Text style={styles.subtitle}>
+                    Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
+                </Text>
 
-                    </View>
-
+                <View style={styles.footer}>
+                    <Button title="Começar" />
                 </View>
-            </KeyboardAvoidingView>
+
+            </View>
+
+
+
 
         </SafeAreaView>
     )
@@ -62,43 +60,33 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        width: '100%',
-    },
-    form: {
-        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 54,
-        justifyContent: 'center'
-
-    },
-    header: {
-        alignItems: 'center'
+        width: '100%',
+        padding: 30
     },
     title: {
-        fontSize: 24,
-        lineHeight: 32,
+        fontSize: 22,
+        lineHeight: 50,
         textAlign: 'center',
         color: colors.heading,
-        fontFamily: fonts.heading,
-        marginTop: 20
+        fontFamily: fonts.text,
+        marginTop: 15
+    },
+    subtitle: {
+        fontFamily: fonts.text,
+        textAlign: 'center',
+        fontSize: 17,
+        paddingHorizontal: 10,
+        color: colors.heading
     },
     emoji: {
-        fontSize: 44
-    },
-    input: {
-        borderBottomWidth: 1,
-        borderColor: colors.gray,
-        color: colors.heading,
-        width: '100%',
-        fontSize: 18,
-        marginTop: 50,
-        padding: 10,
-        textAlign: 'center'
+        fontSize: 78
     },
     footer: {
         width: '100%',
-        marginTop: 40,
-        paddingHorizontal: 20
+        paddingHorizontal: 50,
+        marginTop: 20
     }
 
 })

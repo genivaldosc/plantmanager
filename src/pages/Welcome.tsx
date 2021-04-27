@@ -5,8 +5,15 @@ import fonts from '../styles/fonts';
 import { Feather } from '@expo/vector-icons';
 
 import watering from '../assets/watering.png'
+import { useNavigation } from '@react-navigation/core';
 
 export function Welcome() {
+
+    const navigation = useNavigation();
+
+    function handleStart() {
+        navigation.navigate('UserIdentification');
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -28,7 +35,10 @@ export function Welcome() {
 
                 <TouchableOpacity
                     style={styles.button}
-                    activeOpacity={0.8}>
+                    activeOpacity={0.8}
+                    onPress={handleStart}
+                >
+
                     <Feather name="chevron-right" style={styles.buttonIcon} />
 
                 </TouchableOpacity>
