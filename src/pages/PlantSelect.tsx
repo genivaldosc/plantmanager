@@ -43,7 +43,21 @@ export function PlantSelect() {
 
     const [page, setPage] = useState(1);
     const [loadingMore, setLoadingMore] = useState(true);
+    const [loadedAll, setLoadedAll] = useState(false);
 
+
+    async function fetchEnviroment() {
+        const { data } = await api
+            .get('plants_environments?_sort=title&_order=asc');
+
+        setEnviroments([
+            {
+                key: 'all',
+                title: 'Todos'
+            },
+            ...data
+        ]);
+    }
 
     function handleEnviromentSelected(enviroment: string) {
         setEnviromentSelected(enviroment);
@@ -59,20 +73,18 @@ export function PlantSelect() {
         setFilteredPlants(filtered);
     }
 
+    function handleFetchMore(distance: number) {
+        if (distance < 1) {
+            return
+        }
+
+        setLoadingMore(true);
+        setPage(oldValue => oldValue + 1);
+        fetchEnviroment();
+    }
+
 
     useEffect(() => {
-        async function fetchEnviroment() {
-            const { data } = await api
-                .get('plants_environments?_sort=title&_order=asc');
-
-            setEnviroments([
-                {
-                    key: 'all',
-                    title: 'Todos'
-                },
-                ...data
-            ]);
-        }
 
         fetchEnviroment();
 
@@ -81,10 +93,19 @@ export function PlantSelect() {
     useEffect(() => {
         async function fetchPlants() {
             const { data } = await api
-                .get('plants?_sort=name&_order=asc');
+                .get(`plants?_sort=name&_order=asc&_page=${page}&_limit=8`);
 
-            setPlants(data);
-            setFilteredPlants(data);
+            if (!data) {
+                return setLoading(true);
+            }
+
+            if (page > 1) {
+                setPlants(oldValue => [...oldValue, ...data]);
+                setFilteredPlants(oldValue => [...oldValue, ...data]);
+            }
+
+            // setPlants(data);
+            // setFilteredPlants(data);
             setLoading(false);
         }
 
@@ -136,7 +157,7 @@ export function PlantSelect() {
                     )}
                     showsVerticalScrollIndicator={false}
                     numColumns={2}
-                    contentContainerStyle={styles.contentContainerStyle}
+                    onEndReachedThreshold={0.1}
 
                 />
 
@@ -180,8 +201,5 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 32,
         justifyContent: 'center'
-    },
-    contentContainerStyle: {
-
     }
 })
