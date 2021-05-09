@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 12,
-        marginRight: 7
+        marginHorizontal: 5
     },
     containerActive: {
         fontFamily: fonts.heading,
