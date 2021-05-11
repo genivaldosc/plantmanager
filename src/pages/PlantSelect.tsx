@@ -93,7 +93,6 @@ export function PlantSelect() {
         fetchPlants();
     }
 
-
     useEffect(() => {
 
         async function fetchEnviroment() {
@@ -162,16 +161,10 @@ export function PlantSelect() {
                     showsVerticalScrollIndicator={false}
                     numColumns={2}
                     onEndReachedThreshold={0.1}
-                    onEndReached={({ distanceFromEnd }) =>
-                        handleFetchMore(distanceFromEnd)
-                    }
-                    ListEmptyComponent={
-                        loadingMore
-                            ? <ActivityIndicator color={colors.green} />
-                            : <></>
-                    }
-
-                />
+                    onEndReached={({ distanceFromEnd }) => handleFetchMore(distanceFromEnd)}
+                    ListFooterComponent={
+                        loadingMore ? <ActivityIndicator color={colors.green} size="large" /> : <></>
+                    } />
 
             </View>
 
