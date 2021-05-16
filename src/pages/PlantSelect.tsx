@@ -6,6 +6,7 @@ import {
     FlatList,
     ActivityIndicator
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import { EnviromentButton } from '../components/EnviromentButton';
 import { Header } from '../components/Header';
 import { PlantCardPrimary } from '../components/PlantCardPrimary';
@@ -15,23 +16,11 @@ import api from '../services/api';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
+import { PlantProps } from '../libs/storage';
 
 interface EnviromentProps {
     key: string;
     title: string;
-}
-
-interface PlantProps {
-    id: number;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-        times: number;
-        repeat_every: string;
-    }
 }
 
 export function PlantSelect() {
@@ -44,9 +33,8 @@ export function PlantSelect() {
 
     const [page, setPage] = useState(1);
     const [loadingMore, setLoadingMore] = useState(true);
-    // const [loadedAll, setLoadedAll] = useState(false);
 
-
+    const navigation = useNavigation();
 
 
     async function fetchPlants() {
@@ -67,6 +55,10 @@ export function PlantSelect() {
 
         setLoading(false);
         setLoadingMore(false);
+    }
+
+    function handlePlantSelect(plant: PlantProps) {
+        navigation.navigate('PlantSave', { plant })
     }
 
     function handleEnviromentSelected(enviroment: string) {
@@ -138,7 +130,7 @@ export function PlantSelect() {
             <View>
                 <FlatList
                     data={enviroments}
-
+                    keyExtractor={(item) => item.key}
                     renderItem={({ item }) => (
                         <EnviromentButton
                             title={item.title}
@@ -155,8 +147,12 @@ export function PlantSelect() {
             <View style={styles.plants}>
                 <FlatList
                     data={filteredPlants}
+                    keyExtractor={(item) => String(item.id)}
                     renderItem={({ item }) => (
-                        <PlantCardPrimary data={item} />
+                        <PlantCardPrimary
+                            data={item}
+                            onPress={() => handlePlantSelect(item)}
+                        />
                     )}
                     showsVerticalScrollIndicator={false}
                     numColumns={2}
