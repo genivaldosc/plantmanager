@@ -54,11 +54,6 @@ export function PlantSave() {
 
     async function handlePlantSave() {
 
-        // const data = await loadPlants();
-        // console.log(data);
-
-        console.log(plant);
-
         try {
             await savePlant({
                 ...plant,
