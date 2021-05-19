@@ -78,69 +78,77 @@ export function PlantSave() {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.plantInfo}>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.container}
+        >
 
-                <SvgFromUri
-                    uri={plant.photo}
-                    height={150}
-                    width={150}
-                />
 
-                <Text style={styles.plantName}>
-                    {plant.name}
-                </Text>
+            <View style={styles.container}>
+                <View style={styles.plantInfo}>
 
-                <Text style={styles.plantAbout}>
-                    {plant.about}
-                </Text>
-
-            </View>
-
-            <View style={styles.controller}>
-                <View style={styles.tipContainer}>
-                    <Image
-                        source={waterdrop}
-                        style={styles.tipImage}
+                    <SvgFromUri
+                        uri={plant.photo}
+                        height={150}
+                        width={150}
                     />
-                    <Text style={styles.tipText}>
-                        {plant.water_tips}
+
+                    <Text style={styles.plantName}>
+                        {plant.name}
+                    </Text>
+
+                    <Text style={styles.plantAbout}>
+                        {plant.about}
                     </Text>
 
                 </View>
 
-                <Text style={styles.alertLabel}>
-                    Escolha o melhor horário para ser lembrado.
-                </Text>
-
-                {
-                    showDatePicker &&
-                    <DateTimePicker
-                        value={selectedDateTime}
-                        mode="time"
-                        display="spinner"
-                        onChange={handleChangeTime}
-                    />
-                }
-
-                {Platform.OS == 'android' && (
-                    <TouchableOpacity style={styles.dateTimePickerButton}
-                        onPress={handleOpenDateTimePickerForAndroid}>
-                        <Text style={styles.dateTimePickerText}>
-                            {`Mudar ${format(selectedDateTime, 'HH:mm')}`}
+                <View style={styles.controller}>
+                    <View style={styles.tipContainer}>
+                        <Image
+                            source={waterdrop}
+                            style={styles.tipImage}
+                        />
+                        <Text style={styles.tipText}>
+                            {plant.water_tips}
                         </Text>
-                    </TouchableOpacity>
-                )}
+
+                    </View>
+
+                    <Text style={styles.alertLabel}>
+                        Escolha o melhor horário para ser lembrado.
+                    </Text>
+
+                    {
+                        showDatePicker &&
+                        <DateTimePicker
+                            value={selectedDateTime}
+                            mode="time"
+                            display="spinner"
+                            onChange={handleChangeTime}
+                        />
+                    }
+
+                    {Platform.OS == 'android' && (
+                        <TouchableOpacity style={styles.dateTimePickerButton}
+                            onPress={handleOpenDateTimePickerForAndroid}>
+                            <Text style={styles.dateTimePickerText}>
+                                {`Mudar ${format(selectedDateTime, 'HH:mm')}`}
+                            </Text>
+                        </TouchableOpacity>
+                    )}
 
 
 
-                <Button
-                    title="Cadastrar planta"
-                    onPress={handlePlantSave}
-                />
+                    <Button
+                        title="Cadastrar planta"
+                        onPress={handlePlantSave}
+                    />
 
+                </View>
             </View>
-        </View>
+
+        </ScrollView>
 
     )
 }
