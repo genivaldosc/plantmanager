@@ -11,8 +11,8 @@
 
 ## 🚀 Como executar
 <ul>
-  <li> Clonar do projeto</li>
-  <li> no diretório raiz, executar **expo start** para iniciar a aplicação </li>
+  <li> Clonar o projeto em seu computador</li>
+  <li> no diretório raiz, executar o comando **expo start** para iniciar a aplicação </li>
   <li> ou **yarn android | ios** para rodar a aplicação usando emulador </li>
 </ul>
 
@@ -44,6 +44,7 @@
   <li>Comunicação com API Rest</li>
   <li>Alertas</li>
   <li>StyleSheet</li>
+  <li>Animação simples alternando entre Emojis</li>
 </ul>
 
 ## ⌨️ Tecnologias
