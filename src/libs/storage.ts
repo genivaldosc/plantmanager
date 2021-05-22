@@ -37,7 +37,7 @@ export async function savePlant(plant: PlantProps): Promise<void> {
             nextTime.setDate(now.getDate() + interval);
         } else {
             // acrescenta dias para notificação
-            // nextTime.setDate(nextTime.getDate() + 1)
+            nextTime.setDate(nextTime.getDate() + 1)
         }
 
         // diferença em segundos de um tempo pro outro
@@ -115,6 +115,8 @@ export async function loadPlants(): Promise<PlantProps[]> {
 export async function removePlant(id: string): Promise<void> {
     const data = await AsyncStorage.getItem('@plantmanager:plants');
     const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
+
+    Notifications.cancelScheduledNotificationAsync(plants[id].notificationId);
 
     delete plants[id];
 
