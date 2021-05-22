@@ -49,6 +49,9 @@ export function PlantSave() {
             setSelectedDateTime(new Date());
             return Alert.alert('Escolha uma hora no futuro! ⏰️');
         }
+
+        if (dateTime)
+            setSelectedDateTime(dateTime);
     }
 
     function handleOpenDateTimePickerForAndroid() {
