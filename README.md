@@ -1,11 +1,60 @@
+<h1 align="center">
+  Plant Manager - NLW05
+</h1>
 
-Start server
-
-json-server ./src/services/server.json --host 192.168.15.7 --port 3333 --delay 750
-
-
-Github
-
-https://github.com/genivaldosc/plantmanager
+<h4 align="center">App desenvolvido durante o evento NLW05 para controle de rega de plantas</h4>
 
 
+![](https://github.com/genivaldosc/plantmanager/blob/dev/assets/preview.png)
+
+**Link figma:** https://www.figma.com/file/KjMqJ5L6IEhQkQvvi9i445/PlantManager-(Copy)?node-id=0%3A1
+
+## 🚀 Como executar
+<ul>
+  <li> Clonar do projeto</li>
+  <li> no diretório raiz, executar **expo start** para iniciar a aplicação </li>
+  <li> ou **yarn android | ios** para rodar a aplicação usando emulador </li>
+</ul>
+
+## 🖥 Fake API
+
+  <li> Instalar globalmente o json-server</li>
+  <li> npm i -g json-server</li>
+  <li> Executar o comando de inicio do servidor informando seu ip da rede local em --host </li>
+  <li> json-server ./src/services/server.json --host 192.168.15.7 --port 3333 --delay 300 </li>
+  <li> Alterar a variável baseURL em ./src/services/api.ts informando seu ip.</li>
+</ul>
+
+## 💬 Funcionalidades
+<ul>
+  <li>Listagem de plantas</li>
+  <li>Adição e remoção de planta monitorada</li>
+  <li>Definição de alarmes para lembretes</li>
+  <li>Recebimento de alertas</li>
+</ul>
+
+## 📱 Recursos Aplicados
+<ul>
+  <li>Navegação entre páginas</li>
+  <li>Navegação entre abas</li>
+  <li>Notificação Local</li>
+  <li>Async Storage (Banco de dados local)</li>
+  <li>Componentes</li>
+  <li>Imagens em SVG</li>
+  <li>Comunicação com API Rest</li>
+  <li>Alertas</li>
+  <li>StyleSheet</li>
+</ul>
+
+## ⌨️ Tecnologias
+<ul>
+  <li>React Native</li>
+  <li>TypeScript</li>
+  <li>Expo</li>
+</ul>
+
+## ⛏ A desenvolver
+<ul>
+  <li>Gravar usuário logado</li>
+  <li>Troca de imagem do perfíl</li>
+</ul>
