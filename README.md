@@ -4,12 +4,12 @@
 
 <h4 align="center">App desenvolvido durante o evento NLW05 para controle de rega de plantas</h4>
 
-
 ![](https://github.com/genivaldosc/plantmanager/blob/dev/assets/preview.png)
 
 **Link figma:** https://www.figma.com/file/KjMqJ5L6IEhQkQvvi9i445/PlantManager-(Copy)?node-id=0%3A1
 
 ## 🚀 Como executar
+
 <ul>
   <li> Clonar o projeto em seu computador</li>
   <li> no diretório raiz, executar o comando **expo start** para iniciar a aplicação </li>
@@ -26,6 +26,7 @@
 </ul>
 
 ## 💬 Funcionalidades
+
 <ul>
   <li>Listagem de plantas</li>
   <li>Adição e remoção de planta monitorada</li>
@@ -34,6 +35,7 @@
 </ul>
 
 ## 📱 Recursos Aplicados
+
 <ul>
   <li>Navegação entre páginas</li>
   <li>Navegação entre abas</li>
@@ -48,6 +50,7 @@
 </ul>
 
 ## ⌨️ Tecnologias
+
 <ul>
   <li>React Native</li>
   <li>TypeScript</li>
@@ -55,7 +58,9 @@
 </ul>
 
 ## ⛏ A desenvolver
+
 <ul>
   <li>Gravar usuário logado</li>
   <li>Troca de imagem do perfíl</li>
+  <li>Compartilhar alertas com outros usuários</li>
 </ul>
