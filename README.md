@@ -62,5 +62,4 @@
 <ul>
   <li>Gravar usuário logado</li>
   <li>Troca de imagem do perfíl</li>
-  <li>Compartilhar alertas com outros usuários</li>
 </ul>
